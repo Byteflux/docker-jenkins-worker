@@ -5,7 +5,7 @@ LABEL maintainer="byte@byteflux.net"
 ENV DOCKER_VERSION=18.06.1-ce \
     MAVEN_VERSION=3.5.4
 
-RUN apk add --update openssh git patch && \
+RUN apk add --update openssh git curl patch && \
     ssh-keygen -A && \
     sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config && \
     mkdir -p /var/lib/jenkins/.ssh && \
