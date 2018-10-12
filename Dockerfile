@@ -11,13 +11,13 @@ RUN apk add --update openssh git curl patch && \
     mkdir -p /var/lib/jenkins/.ssh && \
     ln -s /var/lib/jenkins/.ssh /root/ && \
     chmod og-rwx /var/lib/jenkins/.ssh && \
-    wget -O docker.tgz "https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION.tgz" && \
+    curl -o docker.tgz "https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION.tgz" && \
     tar xzf docker.tgz --strip-components=1 -C /usr/bin && \
     rm docker.tgz && \
     mkdir -p /var/lib/jenkins/.docker && \
     ln -s /var/lib/jenkins/.docker /root/ && \
     mkdir /opt/maven && \
-    wget -O maven.tgz "https://www-us.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" && \
+    curl -o maven.tgz "https://www-us.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" && \
     tar xzf maven.tgz --strip-components=1 -C /opt/maven && \
     ln -s /opt/maven/bin/mvn /usr/bin/ && \
     rm maven.tgz && \
